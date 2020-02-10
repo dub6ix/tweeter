@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku # <- this line goes near the top of the file
+import django_heroku  # <- this line goes near the top of the file
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +26,7 @@ SECRET_KEY = '3u!d^krf58!^t-8gca%tw8z+en0-%zbe$p(1_$tl&w(a7-hm=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] # <-- new.
+ALLOWED_HOSTS = ['*']  # <-- new.
 
 # Application definition
 
@@ -38,13 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'bootstrap4', # new
+    'bootstrap4',  # new
+    'bootstrap_datepicker_plus',  # new
 
-    'users', # new
-    'tweets', # newpython manage.py runserver
+
+    'users',  # new
+    'tweets',  # newpython manage.py runserver
 ]
 
-AUTH_USER_MODEL = 'users.CustomUser' # new
+AUTH_USER_MODEL = 'users.CustomUser'  # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'tweeter_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ], # new
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ],  # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,8 +76,10 @@ TEMPLATES = [
     },
 ]
 
-BOOTSTRAP4 = { 'include_jquery': True } # new
+BOOTSTRAP4 = {'include_jquery': True}  # new
 
+LOGIN_REDIRECT_URL = 'home'  # new
+LOGOUT_REDIRECT_URL = 'home'  # new
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
@@ -131,4 +135,5 @@ STATIC_URL = '/static/'
 
 
 # Activate Django-Heroku.
-django_heroku.settings(locals()) # <- this line should be a the end of the file
+# <- this line should be a the end of the file
+django_heroku.settings(locals())
