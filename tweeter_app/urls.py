@@ -22,4 +22,7 @@ urlpatterns = [
     path('users/', include('users.urls')),  # new
     path('api/v1/', include('api.urls')), # new
     path('api-auth/', include('rest_framework.urls')), # new
+    path('api/v1/rest-auth/', include('rest_auth.urls')), # new
+    path('api/v1/rest-auth/', include('rest_auth.urls')), # new
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')), #new
 ]
