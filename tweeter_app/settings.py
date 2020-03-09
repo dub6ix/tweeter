@@ -38,13 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework', # new
     'bootstrap4',  # new
     'bootstrap_datepicker_plus',  # new
 
 
     'users',  # new
     'tweets',  # newpython manage.py runserver
+    'api', # new
+
 ]
+
+# new
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 AUTH_USER_MODEL = 'users.CustomUser'  # new
 
